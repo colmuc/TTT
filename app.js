@@ -45,7 +45,16 @@ showBoard = () => {
 
 startGame = () => {
   readline.question("What is your move", input => {
-    console.log(input);
+    for (i = 0; i < 5; i++) {
+      if (input == "X" || input == "Y" || input == "x" || input == "y") {
+        console.log("Good Move");
+      } else {
+        gameOver();
+        break;
+      }
+    }
+
+    console.log("Game over");
   });
 };
 
