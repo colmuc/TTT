@@ -6,8 +6,8 @@ const readline = require("readline").createInterface({
 play = () => {
   //getNumberofPlayer();
   showBoard();
-  startGame();
   console.log("Enter 0-8");
+  startGame();
 };
 const player1 = "X";
 const player2 = "O";
@@ -46,8 +46,19 @@ showBoard = () => {
 startGame = () => {
   readline.question("What is your move", input => {
     for (i = 0; i < 5; i++) {
-      if (input == "X" || input == "Y" || input == "x" || input == "y") {
-        console.log("Good Move");
+      if (
+        input == "0" ||
+        input == "1" ||
+        input == "2" ||
+        input == "3" ||
+        input == "4" ||
+        input == "5" ||
+        input == "6" ||
+        input == "7" ||
+        input == "8"
+      ) {
+        console.log("Good Move, move again");
+        move(input);
       } else if (input == "-1") {
         gameOver();
         break;
