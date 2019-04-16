@@ -61,3 +61,8 @@ startGame = () => {
 move = input => {};
 
 play();
+
+gameOver = () => {
+  console.log("Thank you for playing!");
+  readline.close();
+};
