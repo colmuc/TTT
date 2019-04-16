@@ -48,13 +48,15 @@ startGame = () => {
     for (i = 0; i < 5; i++) {
       if (input == "X" || input == "Y" || input == "x" || input == "y") {
         console.log("Good Move");
-      } else {
+      } else if (input == "-1") {
         gameOver();
+        break;
+      } else {
+        console.log("Wrong move, please enter either 'X' or 'O'");
+        startGame();
         break;
       }
     }
-
-    console.log("Game over");
   });
 };
 
