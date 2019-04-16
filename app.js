@@ -1,6 +1,12 @@
+const readline = require("readline").createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
 play = () => {
   //getNumberofPlayer();
   showBoard();
+  startGame();
   console.log("Enter 0-8");
 };
 const player1 = "X";
@@ -36,5 +42,13 @@ showBoard = () => {
       board[8]
   );
 };
+
+startGame = () => {
+  readline.question("What is your move", input => {
+    console.log(input);
+  });
+};
+
+move = input => {};
 
 play();
