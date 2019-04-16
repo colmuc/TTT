@@ -63,7 +63,7 @@ startGame = () => {
         gameOver();
         break;
       } else {
-        console.log("Wrong move, please enter either 'X' or 'O'");
+        console.log("Wrong move, please enter a number between 0 and 8");
         startGame();
         break;
       }
@@ -71,7 +71,18 @@ startGame = () => {
   });
 };
 
-move = input => {};
+move = input => {
+  if (input == "0") {
+  } else if (input == "1") {
+  } else if (input == "2") {
+  } else if (input == "3") {
+  } else if (input == "4") {
+  } else if (input == "5") {
+  } else if (input == "6") {
+  } else if (input == "7") {
+  } else if (input == "8") {
+  }
+};
 
 play();
 
