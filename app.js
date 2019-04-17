@@ -15,6 +15,8 @@ play = () => {
         readline.close();
       }
       if (input == 2) {
+        console.log("You're playing two player... make your first move");
+
         startGame();
       }
     }
@@ -66,14 +68,30 @@ showBoard = () => {
 };
 
 startGame = () => {
-  console.log("You're playing two player... make your first move");
   process.openStdin().on("data", answer => {
     if (movePlayerOne(answer) == 1) {
-      console.log("\ngood move");
+      console.log("\nGood move! Player Two's turn");
+      nextPlayer();
     } else if (movePlayerOne(answer) == 2) {
       gameOver();
     } else if (movePlayerOne(answer) == 3) {
-      console.log("\nwrong move");
+      console.log("\nWrong move! Try again");
+    }
+  });
+};
+
+nextPlayer = () => {
+  process.openStdin().on("data", answer => {
+    if (movePlayerTwo(answer) == 1) {
+      console.log("\nGood move! Player One's turn");
+      startGame();
+      if (movePlayerTwo(answer) == 1) {
+        console.log("\nGood move! Player One's turn");
+      }
+    } else if (movePlayerTwo(answer) == 2) {
+      gameOver();
+    } else if (movePlayerTwo(answer) == 3) {
+      console.log("\nWrong move! Try again");
     }
   });
 };
@@ -92,6 +110,28 @@ movePlayerOne = input => {
     input == 8
   ) {
     displayBoardAfterPlayerOne(input);
+    return 1;
+  } else if (input == "-") {
+    return 2;
+  } else {
+    return 3;
+  }
+};
+
+movePlayerTwo = input => {
+  console.log("\n");
+  if (
+    input == 0 ||
+    input == 1 ||
+    input == 2 ||
+    input == 3 ||
+    input == 4 ||
+    input == 5 ||
+    input == 6 ||
+    input == 7 ||
+    input == 8
+  ) {
+    displayBoardAfterPlayerTwo(input);
     return 1;
   } else if (input == "-") {
     return 2;
